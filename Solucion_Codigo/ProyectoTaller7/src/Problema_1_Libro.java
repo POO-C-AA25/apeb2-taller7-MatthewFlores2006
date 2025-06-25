@@ -11,47 +11,91 @@
 * 
 * @author Matthew Flores
 */
+
+import java.util.ArrayList;
+
 public class Problema_1_Libro
 {	
 	public static void main(String[] args)
 	{
-
-
+            Libro libroX = new Libro("Cien años de soledad", "Gabriel García Marquez", 1967);
+            System.out.println(libroX);
 	}
 }
 
 class Libro
 {
-	ArrayList listaCapítulo = new ArrayList<Capítulo>;
+	ArrayList<Capítulo> listaCapítulo = new ArrayList();
+	public String título;
+	public String autor;
+	public int añoPublicación;
 	Libro(){}
+	Libro(String título, String autor, int añoPublicación)
+	{
+		this.título = título;
+		this.autor = autor;
+		this.añoPublicación = añoPublicación;
+	}
+	@Override
+	public String toString()
+	{
+		return "Libro: {" + "\nTítulo: " + this.título + "\nAutor: " + this.autor + "\nañoPublicación: " + this.añoPublicación + "} "; 
+	}
 }
 
 class Capítulo
 {
-	ArrayList listaSección = new ArrayList<Capítulo>;
+    ArrayList<Sección> listaSección = new ArrayList();
+    Capítulo(){}
 }
 
 class Sección
 {
-
+    ArrayList<Párrafo> listaPárrafo = new ArrayList();
+    Sección(){}
 }
 
-class Párrafo
+class Párrafo extends Sección
 {
-
+    ArrayList<Sentencia> listaSentencia = new ArrayList();
+    Párrafo(){}
 }
 
-class Figura
+class Figura extends Sección
 {
+    Figura(){}
+}
 
+class Tabla extends Sección
+{
+    Tabla(){}
+}
+
+class Lista extends Sección
+{
+    Lista(){}
+}
+
+class Viñeta extends Sección
+{
+    Viñeta(){}
 }
 
 class Sentencia
 {
-
+    ArrayList<Palabra> listaPalabra = new ArrayList();
+    Sentencia(){}
+    Sentencia(ArrayList listaPalabra)
+    {
+        this.listaPalabra = listaPalabra;
+    }
 }
 
 class Palabra
 {
-
+    public char palabra;
+    Palabra(char palabra)
+    {
+        this.palabra = palabra;
+    }
 }
